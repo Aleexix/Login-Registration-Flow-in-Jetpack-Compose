@@ -18,6 +18,7 @@ import co.edu.sena.login2902081.R
 import co.edu.sena.login2902081.components.HeadingTextComponents
 import co.edu.sena.login2902081.components.MyTextFieldComponent
 import co.edu.sena.login2902081.components.NormalTextComponents
+import co.edu.sena.login2902081.components.PasswordTextFieldComponent
 
 @Composable
 fun SignUpScreen() {
@@ -43,6 +44,12 @@ fun SignUpScreen() {
                 labelValue = stringResource(id = R.string.email),
                 painterResource = painterResource(id = R.drawable.email)
             )
+            PasswordTextFieldComponent(
+                labelValue = stringResource(id = R.string.password),
+                painterResource = painterResource(id = R.drawable.password)
+            )
+
+
         }
 
     }
