@@ -9,4 +9,5 @@
     <string name="password" translatable="false">Password</string>
     <string name="hide_password" translatable="false">Hide password</string>
     <string name="Show_password" translatable="false">Show password</string>
+    <string name="terms_and_conditions">By continuing you  accept our Privacy Policy and Term of Use</string>
 </resources>
