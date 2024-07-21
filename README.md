@@ -27,4 +27,4 @@ Este proyecto es una implementación de un flujo completo de registro e inicio d
 
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](https://github.com/Aleexix/Login-Registration-Flow-in-Jetpack-Compose/blob/master/LICENSE) para más detalles.
