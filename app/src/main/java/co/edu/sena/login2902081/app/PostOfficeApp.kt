@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun PosOficceApp(){
+fun PostOficceApp(){
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = Color.White
