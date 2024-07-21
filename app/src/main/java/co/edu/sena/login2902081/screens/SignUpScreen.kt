@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import co.edu.sena.login2902081.R
 import co.edu.sena.login2902081.components.HeadingTextComponents
+import co.edu.sena.login2902081.components.MyTextFieldComponent
 import co.edu.sena.login2902081.components.NormalTextComponents
 
 @Composable
@@ -27,6 +28,7 @@ fun SignUpScreen() {
         Column(modifier = Modifier.fillMaxSize()) {
             NormalTextComponents(value = stringResource(id = R.string.hello))
             HeadingTextComponents(value = stringResource(id = R.string.create_account))
+            MyTextFieldComponent(labelValue = stringResource(id = R.string.first_name))
         }
 
     }
@@ -35,6 +37,6 @@ fun SignUpScreen() {
 
 @Preview
 @Composable
-fun DefaultPreviewOfSignUpScreen(){
+fun DefaultPreviewOfSignUpScreen() {
     SignUpScreen()
 }
