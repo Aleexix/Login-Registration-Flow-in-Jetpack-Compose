@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package co.edu.sena.login2902081.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
@@ -19,10 +22,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.edu.sena.login2902081.R
+import co.edu.sena.login2902081.ui.theme.Bgcolor
 import co.edu.sena.login2902081.ui.theme.Primary
+import co.edu.sena.login2902081.ui.theme.componentShapes
 
 @Composable
-fun NormalTextComponents(value:String){
+fun NormalTextComponents(value: String) {
     Text(
         text = value,
         modifier = Modifier
@@ -32,15 +37,14 @@ fun NormalTextComponents(value:String){
             fontSize = 24.sp,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Normal
-        )
-        , color = colorResource(id = R.color.colorText),
+        ), color = colorResource(id = R.color.colorText),
         textAlign = TextAlign.Center
 
     )
 }
 
 @Composable
-    fun HeadingTextComponents(value:String){
+fun HeadingTextComponents(value: String) {
     Text(
         text = value,
         modifier = Modifier
@@ -50,31 +54,32 @@ fun NormalTextComponents(value:String){
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal
-        )
-        , color = colorResource(id = R.color.colorText),
+        ), color = colorResource(id = R.color.colorText),
         textAlign = TextAlign.Center
 
     )
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTextField(labelValue: String){
-    val textValue = remember{
+fun MyTextFieldComponent(labelValue: String) {
+
+    val textValue = remember {
         mutableStateOf("")
     }
 
     OutlinedTextField(
-        label = {Text(text =labelValue)},
+        modifier = Modifier.fillMaxWidth().clip(componentShapes.small),
+        label = { Text(text = labelValue) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Primary,
             focusedLabelColor = Primary,
-            cursorColor = Primary
+            cursorColor = Primary,
+            containerColor = Bgcolor
         ),
         keyboardOptions = KeyboardOptions.Default,
         value = textValue.value,
         onValueChange = {
             textValue.value = it
-        } )
+        })
 }
