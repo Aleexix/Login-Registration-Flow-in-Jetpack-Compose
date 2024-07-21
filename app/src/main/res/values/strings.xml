@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Login2902081</string>
-    <string name="hello">Hey there,</string>
-    <string name="create_account">Create an Account</string>
-    <string name="welcome">Welcome Back</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="app_name" translatable="false">Login2902081</string>
+    <string name="hello" translatable="false">Hey there,</string>
+    <string name="create_account" translatable="false">Create an Account</string>
+    <string name="welcome" translatable="false">Welcome Back</string>
+    <string name="first_name" translatable="false">First name</string>
+    <string name="last_name" translatable="false">Last name</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="hide_password" translatable="false">Hide password</string>
+    <string name="Show_password" translatable="false">Show password</string>
 </resources>
