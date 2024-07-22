@@ -19,6 +19,7 @@ import co.edu.sena.login2902081.components.ButtonComponent
 import co.edu.sena.login2902081.navigation.PostOfficeAppRouter
 import co.edu.sena.login2902081.navigation.Screen
 import co.edu.sena.login2902081.components.CheckboxComponent
+import co.edu.sena.login2902081.components.ClickableLoginTextComponent
 import co.edu.sena.login2902081.components.DividerTextComponent
 import co.edu.sena.login2902081.components.HeadingTextComponents
 import co.edu.sena.login2902081.components.MyTextFieldComponent
@@ -64,6 +65,10 @@ fun SignUpScreen() {
             Spacer(modifier = Modifier.height(20.dp))
 
             DividerTextComponent()
+
+            ClickableLoginTextComponent(onTexSelected = {
+
+            })
         }
 
 
