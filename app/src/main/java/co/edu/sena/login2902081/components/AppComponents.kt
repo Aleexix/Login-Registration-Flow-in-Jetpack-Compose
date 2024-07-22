@@ -156,7 +156,7 @@ fun PasswordTextFieldComponent(labelValue: String, painterResource: Painter) {
             }
             IconButton(onClick = {passwordVisible.value = !passwordVisible.value}) {
                 Icon(imageVector = iconImages, contentDescription = description )
-                
+
             }
         },
         visualTransformation = if(passwordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
@@ -164,11 +164,10 @@ fun PasswordTextFieldComponent(labelValue: String, painterResource: Painter) {
 }
 
 @Composable
-fun CheckboxComponent(value: String){
+fun CheckboxComponent(value: String, onTexSelected :(String) -> Unit){
     Row(modifier = Modifier
         .fillMaxWidth()
-        .heightIn(56.dp)
-        .padding(16.dp),
+        .heightIn(56.dp),
         verticalAlignment = Alignment.CenterVertically,
 
         ){
@@ -179,17 +178,17 @@ fun CheckboxComponent(value: String){
         Checkbox(checked = checkState.value, onCheckedChange ={checkState.value = !checkState.value} )
 
 
-        NormalTextComponents(value)
+        ClickableTextComponent(value = value, onTexSelected)
 
     }
 }
 
 @Composable
-fun ClickableTextComponent(value: String){
+fun ClickableTextComponent(value: String, onTexSelected :(String) -> Unit){
     val initialText = "By continuing you accept our "
-    val privacyPolicyText = "Privacy Policy"
-    val andText = "and"
-    val termsAndConditionsText = "Term of  Use"
+    val privacyPolicyText = "Privacy Policy "
+    val andText = " and "
+    val termsAndConditionsText = " Term of  Use"
 
     val annotatedString = buildAnnotatedString {
     append(initialText)
@@ -207,7 +206,11 @@ fun ClickableTextComponent(value: String){
 
         annotatedString.getStringAnnotations(offset,offset)
             .firstOrNull()?.also { span ->
-                Log.d("ClickableTextComponent", "{$span}")
+                Log.d("ClickableTextComponent", "{${span.item}}")
+
+                if((span.item == termsAndConditionsText) || (span.item == privacyPolicyText)){
+                    onTexSelected(span.item)
+                }
             }
 
     }  )
