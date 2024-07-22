@@ -1,9 +1,11 @@
 package co.edu.sena.login2902081.components
 
+import android.util.Log
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
@@ -24,13 +26,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.edu.sena.login2902081.R
@@ -179,3 +184,31 @@ fun CheckboxComponent(value: String){
     }
 }
 
+@Composable
+fun ClickableTextComponent(value: String){
+    val initialText = "By continuing you accept our "
+    val privacyPolicyText = "Privacy Policy"
+    val andText = "and"
+    val termsAndConditionsText = "Term of  Use"
+
+    val annotatedString = buildAnnotatedString {
+    append(initialText)
+    withStyle(style = SpanStyle(color = Primary)){
+        pushStringAnnotation(tag = privacyPolicyText, annotation = privacyPolicyText)
+        append(privacyPolicyText)
+    }
+        append(andText)
+        withStyle(style = SpanStyle(color = Primary)){
+            pushStringAnnotation(tag = termsAndConditionsText, annotation = termsAndConditionsText)
+            append(termsAndConditionsText)
+        }
+    }
+    ClickableText(text =annotatedString , onClick ={ offset ->
+
+        annotatedString.getStringAnnotations(offset,offset)
+            .firstOrNull()?.also { span ->
+                Log.d("ClickableTextComponent", "{$span}")
+            }
+
+    }  )
+}
