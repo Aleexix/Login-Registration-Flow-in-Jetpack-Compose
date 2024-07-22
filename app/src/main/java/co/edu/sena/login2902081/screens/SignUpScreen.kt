@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import co.edu.sena.login2902081.R
+import co.edu.sena.login2902081.components.ButtonComponent
 import co.edu.sena.login2902081.navigation.PostOfficeAppRouter
 import co.edu.sena.login2902081.navigation.Screen
 import co.edu.sena.login2902081.components.CheckboxComponent
@@ -55,7 +56,7 @@ fun SignUpScreen() {
                 onTexSelected = {
                     PostOfficeAppRouter.navigateTo(Screen.TermsAndConditionsScreen)
                 })
-
+            ButtonComponent(value = stringResource(id = R.string.register) )
         }
 
 
