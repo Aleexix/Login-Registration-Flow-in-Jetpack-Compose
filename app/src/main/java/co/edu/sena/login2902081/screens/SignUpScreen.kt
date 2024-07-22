@@ -19,6 +19,7 @@ import co.edu.sena.login2902081.components.ButtonComponent
 import co.edu.sena.login2902081.navigation.PostOfficeAppRouter
 import co.edu.sena.login2902081.navigation.Screen
 import co.edu.sena.login2902081.components.CheckboxComponent
+import co.edu.sena.login2902081.components.DividerTextComponent
 import co.edu.sena.login2902081.components.HeadingTextComponents
 import co.edu.sena.login2902081.components.MyTextFieldComponent
 import co.edu.sena.login2902081.components.NormalTextComponents
@@ -54,9 +55,15 @@ fun SignUpScreen() {
             )
             CheckboxComponent(value = stringResource(id = R.string.terms_and_conditions),
                 onTexSelected = {
-                    PostOfficeAppRouter.navigateTo(Screen.TermsAndConditionsScreen)
-                })
+                    PostOfficeAppRouter.navigateTo(Screen.TermsAndConditionsScreen) })
+
+            Spacer (modifier = Modifier.height(80.dp))
+
             ButtonComponent(value = stringResource(id = R.string.register) )
+            
+            Spacer(modifier = Modifier.height(20.dp))
+
+            DividerTextComponent()
         }
 
 
