@@ -17,12 +17,14 @@ import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,6 +34,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -48,8 +51,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.edu.sena.login2902081.R
 import co.edu.sena.login2902081.ui.theme.Bgcolor
+import co.edu.sena.login2902081.ui.theme.GrayColor
 import co.edu.sena.login2902081.ui.theme.Primary
 import co.edu.sena.login2902081.ui.theme.Secundary
+import co.edu.sena.login2902081.ui.theme.TextColor
 import co.edu.sena.login2902081.ui.theme.componentShapes
 
 @Composable
@@ -255,10 +260,27 @@ fun ButtonComponent(value: String){
 
 
 @Composable
-fun ButtonComponent1(value: String){
-    Button(onClick = { /*TODO*/ },
-        modifier = Modifier
+fun DividerTextComponent(){
+    Row(modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+        ){
+
+        Divider(modifier = Modifier
             .fillMaxWidth()
-            .heightIn(48.dp)) {
+            .weight(1f),
+        color = GrayColor,
+            thickness = 1.dp
+        )
+        
+        Text(modifier = Modifier.padding(8.dp),
+            text = stringResource(id = R.string.or),
+            fontSize = 18.sp,
+            color = TextColor)
+
+        Divider(modifier = Modifier
+            .fillMaxWidth()
+            .weight(1f),
+            color = GrayColor,
+            thickness = 1.dp)
     }
 }
