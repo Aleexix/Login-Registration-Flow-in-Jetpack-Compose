@@ -284,3 +284,39 @@ fun DividerTextComponent(){
             thickness = 1.dp)
     }
 }
+
+@Composable
+fun ClickableLoginTextComponent(onTexSelected :(String) -> Unit){
+    val initialText = "Already have an account? "
+    val LoginText = "Login"
+
+    val annotatedString = buildAnnotatedString {
+        append(initialText)
+        withStyle(style = SpanStyle(color = Primary)){
+            pushStringAnnotation(tag = LoginText, annotation = LoginText)
+            append(LoginText)
+        }
+        }
+    ClickableText(
+        modifier = Modifier
+        .fillMaxWidth()
+        .heightIn(min = 40.dp),
+        style = TextStyle(
+            fontSize = 21.sp,
+            fontWeight = FontWeight.Normal,
+            fontStyle = FontStyle.Normal,
+            textAlign = TextAlign.Center
+        ),
+        text =annotatedString , onClick ={ offset ->
+
+        annotatedString.getStringAnnotations(offset,offset)
+            .firstOrNull()?.also { span ->
+                Log.d("ClickableTextComponent", "{${span.item}}")
+
+                if(span.item == LoginText){
+                    onTexSelected(span.item)
+                }
+            }
+
+    }  )
+}
